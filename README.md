@@ -1,7 +1,7 @@
 # 🔱 4Blue Recon Tool
 ![Python](https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-0.1-orange?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.1-orange?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Kali_Linux-black?style=for-the-badge&logo=kalilinux)
 
 A powerful and user-friendly TUI tool designed to automate reconnaissance and web application analysis tasks.
