@@ -19,8 +19,11 @@ A powerful and user-friendly TUI tool designed to automate reconnaissance and we
     <td><img width="480"   alt="Screenshot 3" src="https://github.com/user-attachments/assets/b6ba36ec-8cc4-48dd-9ec4-ab3086934e3f"></td>
     <td><img width="480"  alt="Screenshot 4" src="https://github.com/user-attachments/assets/9a6249ad-d475-43d4-a0a9-8ae4f934e3fd"></td>
   </tr>
+   <tr>
+    <td><img width="480"   alt="Screenshot 3" src="https://github.com/user-attachments/assets/a9c867d0-7a83-41e0-90f5-ca0cb5c6519b"></td>
+    <td><img width="480"  alt="Screenshot 4" src="https://github.com/user-attachments/assets/1a1a670c-ae2f-4cc4-bc18-5fcec8ad05a7"></td>
+  </tr>
 </table>
-
 
 
 
@@ -38,7 +41,8 @@ The core idea is to leverage the power of existing, time-tested tools (`Nmap`, `
 * **Multilingual Support**: Available in English and Russian.
 * **Simple Installation**: A single script to install all dependencies.
 * **Integrated Help**: Descriptions for each tool are accessible directly within the program.
-
+* **Export to HTML**: Don't lose your findings. After every scan, you can choose to export the full, colored output to an HTML file for your records.
+ 
 ### Included Tools:
 
 ####  Reconnaissance & Information Gathering
