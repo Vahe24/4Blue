@@ -1,8 +1,9 @@
 # 🔱 4Blue Recon Tool
+
 ![Python](https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Version](https://img.shields.io/badge/Version-1.1-orange?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Kali_Linux-black?style=for-the-badge&logo=kalilinux)
+![Platform](https://img.shields.io/badge/Platform-Linux-black?style=for-the-badge&logo=linux)
 
 A powerful and user-friendly TUI tool designed to automate reconnaissance and web application analysis tasks.
 
@@ -20,12 +21,10 @@ A powerful and user-friendly TUI tool designed to automate reconnaissance and we
     <td><img width="480"  alt="Screenshot 4" src="https://github.com/user-attachments/assets/9a6249ad-d475-43d4-a0a9-8ae4f934e3fd"></td>
   </tr>
    <tr>
-    <td><img width="480"   alt="Screenshot 3" src="https://github.com/user-attachments/assets/a9c867d0-7a83-41e0-90f5-ca0cb5c6519b"></td>
-    <td><img width="480"  alt="Screenshot 4" src="https://github.com/user-attachments/assets/1a1a670c-ae2f-4cc4-bc18-5fcec8ad05a7"></td>
+    <td><img width="480"   alt="Screenshot 5" src="https://github.com/user-attachments/assets/a9c867d0-7a83-41e0-90f5-ca0cb5c6519b"></td>
+    <td><img width="480"  alt="Screenshot 6" src="https://github.com/user-attachments/assets/1a1a670c-ae2f-4cc4-bc18-5fcec8ad05a7"></td>
   </tr>
 </table>
-
-
 
 ## 📖 About The Project
 
@@ -38,11 +37,11 @@ The core idea is to leverage the power of existing, time-tested tools (`Nmap`, `
 * **15 Tools in One**: A comprehensive suite for reconnaissance and analysis.
 * **Interactive TUI**: User-friendly and intuitive interface for tool selection.
 * **Beautiful Output**: Scan results are formatted into tables and panels for easy readability.
+* **Export to HTML**: After every scan, you can choose to export the full, colored output to an HTML file. Reports are automatically saved to a `results` folder inside the `4Blue` project directory on your Desktop.
 * **Multilingual Support**: Available in English and Russian.
 * **Simple Installation**: A single script to install all dependencies.
 * **Integrated Help**: Descriptions for each tool are accessible directly within the program.
-* **Export to HTML**: Don't lose your findings. After every scan, you can choose to export the full, colored output to an HTML file for your records.
- 
+
 ### Included Tools:
 
 ####  Reconnaissance & Information Gathering
@@ -71,56 +70,40 @@ The core idea is to leverage the power of existing, time-tested tools (`Nmap`, `
 * **Language**: Python 3
 * **Interface (TUI)**: `rich`, `questionary`
 * **Networking**: `dnspython`, `requests`
-* **Underlying Tools**: `Nmap`, `subfinder`, `ffuf`, `whatweb`, `dig`, `whois`, `curl`, `traceroute`, `openssl`.
+* **Underlying Tools**: `Nmap`, `ffuf`, `whatweb`, `dig`, `whois`, `curl`, `traceroute`, `openssl`.
 
 ## 🚀 Installation & Usage
 
-This tool is designed for use on **Debian-based** systems (Kali Linux, Ubuntu).
+This tool is designed for major Linux distributions and has been tested on **Debian-based (Kali, Ubuntu, Parrot), Fedora, and Arch Linux** systems.
 
 ### 1. Clone the repository
-Replace `your-username` with your GitHub username.
 ```bash
-git clone https://github.com/Vahe24/4Blue.git
-```
+git clone [https://github.com/Vahe24/4Blue.git](https://github.com/Vahe24/4Blue.git)
+2. Navigate to the project directory
+Bash
 
-### 2\. Navigate to the project directory
+cd 4Blue
+3. Make the installer executable
+Bash
 
-```bash
-cd 4blue
-```
-
-### 3\. Make the installer executable
-
-```bash
 chmod +x install.sh
-```
-
-### 4\. Run the installer
-
+4. Run the installer
 The script will automatically install all necessary utilities and libraries.
 
-```bash
+Bash
+
 sudo ./install.sh
-```
+💻 How to Use
+After installation, you can run the tool from any directory by simply typing the command in your terminal. For scans requiring elevated privileges (e.g., Nmap OS Scan), run with sudo.
 
-## 💻 How to Use
+Bash
 
-After installation, you can run the tool from any directory by simply typing the command in your terminal. For scans requiring elevated privileges (e.g., Nmap OS Scan), run with `sudo`.
-
-```bash
 # Normal execution
 4blue
 
 # Execution for OS detection scans
 sudo 4blue
-```
-
 Then, just follow the on-screen menu: select your language, choose the desired tool, enter the target, and view the results.
 
-## ⚠️ Disclaimer
-
+⚠️ Disclaimer
 This tool is intended for educational and ethical use only. The author is not liable for any illegal use or misuse of this tool. Users are solely responsible for their actions and must ensure they have explicit permission to scan the target systems.
-
-## 📄 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
