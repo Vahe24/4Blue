@@ -1,7 +1,4 @@
-#!/usr/bin/env python3
 import os
-import subprocess
-import socket
 from time import sleep
 from rich.console import Console
 from rich.panel import Panel
@@ -9,6 +6,7 @@ from rich.table import Table
 import questionary
 from questionary import Style
 from datetime import datetime
+from pathlib import Path
 
 from .config import RU, EN, LOGO, FINGERPRINTS
 from .scanners import (
@@ -28,13 +26,16 @@ def save_result(target, tool_name, renderables, logo):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     sanitized_target = target.replace('.', '_')
     
-    results_dir = "results"
+    sanitized_tool_name = tool_name.replace(' ', '_').replace('/', '_')
+    
+    
+    project_dir = Path(os.path.expanduser('~')) / "Desktop" / "4Blue"
+    results_dir = project_dir / "results"
     os.makedirs(results_dir, exist_ok=True)
     
-    base_filename = f"{results_dir}/{sanitized_target}_{tool_name.replace(' ', '_')}_{timestamp}"
+    base_filename = results_dir / f"{sanitized_target}_{sanitized_tool_name}_{timestamp}"
     
     report_console = Console(record=True, width=120)
-    
     report_console.print(logo)
     
     if isinstance(renderables, list):
@@ -43,7 +44,7 @@ def save_result(target, tool_name, renderables, logo):
     else:
         report_console.print(renderables)
 
-    # Сохраняем только в HTML
+   
     report_console.save_html(f"{base_filename}.html")
 
     console.print(f"\n[bold green]✓ {LANG['save_confirm']}:[/bold green]")
