@@ -149,9 +149,28 @@ def run_content_discovery(target, LANG):
     return None
 
 def run_subdomain_enum(target, LANG):
-    output = run_command(["subfinder", "-d", target, "-silent"], "Subdomain Enum", target)
+    
+    console.print(f"\n[yellow]>>> Searching for subdomains on [bold green]{target}[/bold green] with [bold cyan]Nmap[/bold cyan]...[/yellow]")
+    console.print("[cyan]This may take several minutes...[/cyan]")
+    
+    command = ["nmap", "--script", "dns-brute", target]
+    output = run_command(command, "Nmap DNS Brute", target)
+    
     if output:
-        return Panel(output, border_style="cyan", title=f"Subdomains for {target}")
+        
+        subdomains = []
+        for line in output.split('\n'):
+            
+            if target in line and (line.strip().startswith('|   ') or line.strip().startswith('|_  ')):
+                
+                subdomain = line.strip().split()[1]
+                subdomains.append(subdomain)
+        
+        if subdomains:
+            clean_output = "\n".join(subdomains)
+            return Panel(clean_output, border_style="cyan", title=f"Subdomains for {target} (found with Nmap)")
+        else:
+            return Panel(f"No subdomains found for {target}", border_style="yellow")
     return None
 
 def run_txt_records(target, LANG):

@@ -14,7 +14,7 @@ echo "[+] Updating package list..."
 apt-get update
 
 echo "[+] Installing system utilities and Python libraries..."
-apt-get install -y python3 python3-pip whois dnsutils curl whatweb ffuf nmap traceroute openssl python3-rich python3-questionary subfinder python3-dnspython python3-requests
+apt-get install -y python3 python3-pip whois dnsutils curl whatweb ffuf nmap traceroute openssl python3-rich python3-questionary python3-dnspython python3-requests
 
 echo "[+] Locating Python's site-packages directory..."
 SITE_PACKAGES=$(python3 -c "import site; print(site.getsitepackages()[0])")
