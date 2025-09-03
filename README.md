@@ -77,33 +77,44 @@ The core idea is to leverage the power of existing, time-tested tools (`Nmap`, `
 This tool is designed for major Linux distributions and has been tested on **Debian-based (Kali, Ubuntu, Parrot), Fedora, and Arch Linux** systems.
 
 ### 1. Clone the repository
+
 ```bash
 git clone [https://github.com/Vahe24/4Blue.git](https://github.com/Vahe24/4Blue.git)
-2. Navigate to the project directory
-Bash
+```
 
+### 2. Navigate to the project directory
+
+```bash
 cd 4Blue
-3. Make the installer executable
-Bash
+```
+### 3. Make the installer executable
 
+```bash
 chmod +x install.sh
-4. Run the installer
+```
+
+### 4. Run the installer
+
 The script will automatically install all necessary utilities and libraries.
 
-Bash
-
+```bash
 sudo ./install.sh
-💻 How to Use
+```
+
+## 💻 How to Use
+
 After installation, you can run the tool from any directory by simply typing the command in your terminal. For scans requiring elevated privileges (e.g., Nmap OS Scan), run with sudo.
 
-Bash
-
+```bash
 # Normal execution
 4blue
 
 # Execution for OS detection scans
 sudo 4blue
+```
+
 Then, just follow the on-screen menu: select your language, choose the desired tool, enter the target, and view the results.
 
-⚠️ Disclaimer
+## ⚠️ Disclaimer
+
 This tool is intended for educational and ethical use only. The author is not liable for any illegal use or misuse of this tool. Users are solely responsible for their actions and must ensure they have explicit permission to scan the target systems.
