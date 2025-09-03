@@ -7,25 +7,40 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 
-echo "--- Starting 4Blue Installer ---"
+echo "--- Starting 4Blue Universal Installer ---"
 sleep 1
 
-echo "[+] Updating package list..."
-apt-get update
 
-echo "[+] Installing system utilities and Python libraries..."
-apt-get install -y python3 python3-pip whois dnsutils curl whatweb ffuf nmap traceroute openssl python3-rich python3-questionary python3-dnspython python3-requests
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID
+else
+    echo "Cannot detect operating system."
+    exit 1
+fi
+
+
+if [[ "$OS" == "kali" || "$OS" == "ubuntu" || "$OS" == "debian" || "$OS" == "parrot" ]]; then
+    echo "[+] Detected Debian-based OS. Using apt..."
+    apt-get update
+    apt-get install -y python3 python3-pip whois dnsutils curl whatweb ffuf nmap traceroute openssl python3-rich python3-dnspython python3-requests
+elif [ "$OS" == "fedora" ]; then
+    echo "[+] Detected Fedora. Using dnf..."
+    # Имена пакетов для Fedora (например, 'bind-utils' вместо 'dnsutils')
+    dnf install -y python3 python3-pip whois bind-utils curl whatweb ffuf nmap traceroute openssl python3-rich python3-dnspython python3-requests
+else
+    echo "Unsupported operating system: $OS"
+    echo "Please install the following dependencies manually: python3, pip, whois, dig, curl, whatweb, ffuf, nmap, traceroute, openssl, rich, dnspython, requests"
+    exit 1
+fi
+
 
 echo "[+] Locating Python's site-packages directory..."
 SITE_PACKAGES=$(python3 -c "import site; print(site.getsitepackages()[0])")
-
 if [ -z "$SITE_PACKAGES" ]; then
     echo "Could not find site-packages directory. Exiting."
     exit 1
 fi
-echo "Found: $SITE_PACKAGES"
-
-echo "[+] Installing 4Blue package into system libraries..."
 rm -rf "$SITE_PACKAGES/blue_tool"
 cp -r blue_tool "$SITE_PACKAGES/"
 
