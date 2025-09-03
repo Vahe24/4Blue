@@ -10,7 +10,7 @@ fi
 echo "--- Starting 4Blue Universal Installer ---"
 sleep 1
 
-# --- ШАГ 1: ОПРЕДЕЛЕНИЕ ОПЕРАЦИОННОЙ СИСТЕМЫ ---
+
 if [ -f /etc/os-release ]; then
     . /etc/os-release
     OS=$ID
@@ -19,25 +19,26 @@ else
     exit 1
 fi
 
-# --- ШАГ 2: УСТАНОВКА ЗАВИСИМОСТЕЙ В ЗАВИСИМОСТИ ОТ СИСТЕМЫ ---
+
+echo "[+] Installing system utilities via package manager..."
 if [[ "$OS" == "kali" || "$OS" == "ubuntu" || "$OS" == "debian" || "$OS" == "parrot" ]]; then
-    echo "[+] Detected Debian-based OS. Using apt..."
     apt-get update
+   
     apt-get install -y python3 python3-pip whois dnsutils curl whatweb ffuf nmap traceroute openssl python3-rich python3-dnspython python3-requests
 elif [ "$OS" == "fedora" ]; then
-    echo "[+] Detected Fedora. Using dnf..."
     dnf install -y python3 python3-pip whois bind-utils curl whatweb ffuf nmap traceroute openssl python3-rich python3-dnspython python3-requests
 elif [ "$OS" == "arch" ]; then
-    echo "[+] Detected Arch Linux. Using pacman..."
-    # --noconfirm чтобы не задавать вопросов
     pacman -Syu --noconfirm python python-pip whois bind curl whatweb ffuf nmap traceroute openssl python-rich python-dnspython python-requests
 else
-    echo "Unsupported operating system: $OS"
-    echo "Please install the following dependencies manually: python3, pip, whois, dig, curl, whatweb, ffuf, nmap, traceroute, openssl, rich, dnspython, requests"
+    echo "Unsupported OS for automatic dependency installation: $OS"
     exit 1
 fi
 
-# --- ОСТАЛЬНАЯ ЧАСТЬ СКРИПТА ОСТАЕТСЯ БЕЗ ИЗМЕНЕНИЙ ---
+
+echo "[+] Installing 'questionary' using pip..."
+pip3 install questionary --break-system-packages
+
+
 echo "[+] Locating Python's site-packages directory..."
 SITE_PACKAGES=$(python3 -c "import site; print(site.getsitepackages()[0])")
 if [ -z "$SITE_PACKAGES" ]; then
