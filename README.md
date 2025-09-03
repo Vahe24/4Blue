@@ -1,4 +1,4 @@
-# 🔱 4Blue Recon Tool
+[# 🔱 4Blue Recon Tool
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
@@ -79,7 +79,7 @@ This tool is designed for major Linux distributions and has been tested on **Deb
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/Vahe24/4Blue.git](https://github.com/Vahe24/4Blue.git)
+git clone https://github.com/Vahe24/4Blue.git
 ```
 
 ### 2. Navigate to the project directory
@@ -118,3 +118,4 @@ Then, just follow the on-screen menu: select your language, choose the desired t
 ## ⚠️ Disclaimer
 
 This tool is intended for educational and ethical use only. The author is not liable for any illegal use or misuse of this tool. Users are solely responsible for their actions and must ensure they have explicit permission to scan the target systems.
+](https://github.com/Vahe24/4Blue)
